@@ -16,6 +16,8 @@
 # calculate result
 # return result
 
+#commit to github
+
 def start_calculator
   puts "Welcome to the calculator"
   puts "Enter the first number"
