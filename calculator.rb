@@ -10,17 +10,12 @@
 # - make + - * / work
 # - make clear work
 
-# ask for first number
-# ask for operator
-# ask for second number
-# calculate result
-# return result
-
-#commit to github
+# commit to github
+@first_number
+@second_number
 
 def start_calculator
   puts "Welcome to the calculator"
-  puts "Enter the first number"
   print "> "
   first_number
 end
@@ -38,48 +33,47 @@ def first_number
   #   error
   # end
   # calculate
-  first_number = gets.strip.to_f
+  @first_number = gets.strip.to_f
   calculate
+end
+
+def second_number
+  puts "Enter the second number:"
+  print ">"
+  @second_number = gets.strip.to_f
+  result
 end
 
 def calculate
   puts "Enter operator: + - * / = QUIT"
-  puts "> "
-  operator = gets.strip
+  print "> "
+  @operator = gets.strip
+  if
+    @operator = "QUIT"
+    exit
+  end
   second_number
 end
 
 def result
-  case result
+  case @operator
   when "+"
-    puts result = first_number + second_number
+    puts (@first_number + @second_number)
   when "-"
-    puts first_number - second_number
+    puts (@first_number - @second_number)
   when "*"
-    puts first_number * second_number
+    puts (@first_number * @second_number)
   when "/"
-    puts first_number / second_number
-  when "QUIT"
-    exit
+    puts (@first_number / @second_number)
   else
     error
   end
-end
-
-def second_number
-  puts "Enter the second_number:"
-  print ">"
-  second_number = gets.strip.to_f
-  result
-end
-
-def result
   exit
 end
 
 def error
   puts "Error"
-  calculate
+  @first_number
 end
 
 start_calculator
